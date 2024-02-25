@@ -12,4 +12,4 @@ class CuentaCorriente:
 
     def ConsultarSaldo(self):
         #aqui va el codigo
-        return self.saldo 
+        return "su salario actual es"+ self.saldo
