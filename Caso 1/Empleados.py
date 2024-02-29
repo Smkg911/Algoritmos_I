@@ -48,9 +48,21 @@ class empleado:
         # # forma 2
         # self.salario *= 2
 
-    def salarioAnual(self):
+    def SalarioAnual(self):
         salarioAnual=self.salario*12
         return "Su salario anual es"+salarioAnual
         # #forma 2
         # return self.salario*12
+    
+    def ConsultarDiaCumpleanios(self):
+        # aqui va el codigo 
+        return self.fechaNaciomiento.ConsultarDia() 
+    
+    def ImpuestoAnual(self):
+        # aqui va el codigo 
+        impuesto = self.SalarioAnual()*0.195
+        return "su impuesto anual sera de"+impuesto
+        # #forma 2
+        # return self.SalarioAnual()*0.195
+    
     

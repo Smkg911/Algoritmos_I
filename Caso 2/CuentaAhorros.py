@@ -4,7 +4,7 @@ class CuentaAhorros:
     '''-----------------------
     #Atributos
     --------------------------'''
-    saldo=0
+    saldo2=0
     interesMensual=0
 
     '''---------------------------
@@ -39,3 +39,4 @@ class CuentaAhorros:
             return "usted ha retirado"+ retiro
         else:
             return "fondos insuficientes" 
+        
