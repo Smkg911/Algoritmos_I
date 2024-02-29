@@ -1,3 +1,5 @@
+from Fecha import Fecha
+
 class empleado:
     #aqui va el codigo
     '''---------------------------------
@@ -11,6 +13,13 @@ class empleado:
     ------------------------------------'''
     sexo=0
     salario=0
+
+    '''-----------------------------------------
+    # Asociaciones
+    --------------------------------------------'''
+     
+    fechaNaciomiento = Fecha()
+    fechaIngreso= Fecha()
 
     '''----------------------------------
     # Metodos 
@@ -31,3 +40,17 @@ class empleado:
         nSalario = self.salario+aumento
         self.salario = nSalario
         return "su nuevo salario es: "+ self.salario
+    
+    def DuplicarSalario(self):
+        # forma 1
+        nuevoSalario=self.salario*2
+        self.salario = nuevoSalario
+        # # forma 2
+        # self.salario *= 2
+
+    def salarioAnual(self):
+        salarioAnual=self.salario*12
+        return "Su salario anual es"+salarioAnual
+        # #forma 2
+        # return self.salario*12
+    

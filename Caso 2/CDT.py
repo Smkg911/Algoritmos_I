@@ -18,7 +18,8 @@ class CDT:
         
     def InteresMensual(self):
         #aqui va el codigo
-        interes = self.valorInvertido*0.1
+        interes = self.valorInvertido*self.interesMensual
         nValorInvertido = self.valorInvertido+interes
         self.valorInvertido = nValorInvertido
         return self.valorInvertido
+    

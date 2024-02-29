@@ -7,3 +7,4 @@ class SimuladorBancario:
     cedula=0
     nombre=''
     mesActual=0
+    
