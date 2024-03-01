@@ -4,7 +4,7 @@ class CuentaAhorros:
     '''-----------------------
     #Atributos
     --------------------------'''
-    saldo2=0
+    saldo=0
     interesMensual=0
 
     '''---------------------------
@@ -14,6 +14,10 @@ class CuentaAhorros:
     def ConsultarSaldo(self):
         #aqui va el codigo
         return "su salario actual es"+ self.saldo 
+    
+    def ConsultarInteresMensual(self):
+        #aqui va el codigo
+        return self.interesMensual
         
     def InteresMensual(self):
         #aqui va el codigo
@@ -23,20 +27,9 @@ class CuentaAhorros:
         return self.saldo
 
     def DepositarValor(self, deposito):
-        #aqui va el codigo
-        deposito = 0
-        nSaldo = self.saldo+deposito
-        self.saldo = nSaldo 
-        return "Usted ha depositado"+deposito 
+        # aqui va el codigo
+        self.saldo += deposito
         
     def RetirarValor(self, retiro):
         #aqui va el codigo
-        retiro = 0
-        nSaldo = self.saldo-retiro 
-        self.saldo = nSaldo 
-        if retiro <= self.saldo:
-            self.saldo < retiro
-            return "usted ha retirado"+ retiro
-        else:
-            return "fondos insuficientes" 
-        
+        self.saldo -= retiro
