@@ -10,6 +10,11 @@ class CuentaAhorros:
     '''---------------------------
     # Metodos 
     ------------------------------'''
+    #constructor
+
+    def __init__(self, saldo, interesMensual):
+        self.saldo=saldo
+        self.interesMensual=interesMensual
 
     def ConsultarSaldo(self):
         #aqui va el codigo
