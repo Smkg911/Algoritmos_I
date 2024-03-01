@@ -1,6 +1,6 @@
 from Fecha import Fecha
 
-class empleado:
+class Empleados:
     #aqui va el codigo
     '''---------------------------------
     # atributos
@@ -25,10 +25,18 @@ class empleado:
     # Metodos 
     -------------------------------------'''
 
+    # constructor
+
+    def __init__(self, nombres, apellidos, salario, sexo):
+        self.nombres=nombres
+        self.apellidos=apellidos
+        self.salario=salario
+        self.sexo=sexo
+
     def CambiarSalario(self, nSalario):
         #aqui va el codigo
         self.salario = nSalario
-        return "el salario se ha actualizado a: "+ self.salario 
+        return "el salario se ha actualizado a: "+ str(self.salario)
     
     def ConsultarSalario(self):
         #aqui va el codigo
@@ -39,18 +47,19 @@ class empleado:
         aumento = self.salario*0.05
         nSalario = self.salario+aumento
         self.salario = nSalario
-        return "su nuevo salario es: "+ self.salario
+        return "su nuevo salario es: "+str(self.salario)
     
     def DuplicarSalario(self):
         # forma 1
         nuevoSalario=self.salario*2
         self.salario = nuevoSalario
+        return self.salario
         # # forma 2
         # self.salario *= 2
 
     def SalarioAnual(self):
         salarioAnual=self.salario*12
-        return "Su salario anual es"+salarioAnual
+        return "Su salario anual es "+str(salarioAnual)
         # #forma 2
         # return self.salario*12
     
@@ -60,9 +69,6 @@ class empleado:
     
     def ImpuestoAnual(self):
         # aqui va el codigo 
-        impuesto = self.SalarioAnual()*0.195
-        return "su impuesto anual sera de"+impuesto
+        return self.SalarioAnual()*0.195
         # #forma 2
         # return self.SalarioAnual()*0.195
-    
-    
