@@ -37,6 +37,7 @@ class SimuladorBancario:
         nuevoSaldo= self.CuentaAhorros.saldo()*2
         self.CuentaAhorros.saldo=nuevoSaldo 
         return "su saldo se ha duplicado a"+ nuevoSaldo
+        # retorno self.CuentaAhorro.ConsultarSaldo() *=2
     
     def RetirarAhorro(self, retiro):
         #aqui va el codigo
