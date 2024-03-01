@@ -1,5 +1,6 @@
 from CuentaAhorros import CuentaAhorros
 from CuentaCorriente import CuentaCorriente
+from CDT import CDT
 
 class SimuladorBancario:
     #aqui va el codigo
@@ -14,44 +15,55 @@ class SimuladorBancario:
     # Asociaciones
     --------------------------------------------'''
 
-    saldoAhorros= CuentaAhorros()
-    saldoCorriente= CuentaCorriente() 
+    ahorros= CuentaAhorros()
+    corriente= CuentaCorriente() 
+    cdt = CDT()
+
+    '''----------------------------------------------------
+    # metodos 
+    --------------------------------------------------------'''
 
     def ConsultarSaldoTotal (self):
         #aqui va el codigo
-        return "su saldo total es"+ self.CuentaCorriente.saldoCorriente()+ self.CuentaAhorros.saldoAhorros()
+        return "su saldo total es"+ self.ahorros.ConsultarSaldo()+ self.corriente.ConsultarSaldo()
+        
     
     def ConsignarCuentaCorriente(self, deposito):
         #aqui va el codigo 
-        return self.CuentaCorriente.DepositarValor(deposito)
+        return self.corriente.DepositarValor(deposito)
     
+    def ConsignarCuentaAhorros(self, deposito):
+    #aqui va el codigo 
+        return self.ahorros.DepositarValor(deposito)
     def CuentaAhorrosCorriente(self):
         #aqui va el codigo
-        saldoAhorros= self.CuentaAhorros.ConsultarSaldo()
-        self.CuentaAhorros.RetirarValor(saldoAhorros)
-        self.CuentaCorriente.DepositarValor(saldoAhorros)
-        return "usted ha retirado"+saldoAhorros
+        saldoAhorros= self.ahorros.ConsultarSaldo()
+        self.ahorros.RetirarValor(saldoAhorros)
+        self.corriente.DepositarValor(saldoAhorros)
+        return saldoAhorros
+        # forma 2
+        #self.ConsignarCuentaCorriente(self.ahorros.ConsultarSaldo())
+        #self.ahorros.RetirarValor(self.ahorros.ConsultarSaldo())
     
     def DuplicarSaldoAhorros(self):
         # aqui va el codigo
-        nuevoSaldo= self.CuentaAhorros.saldo()*2
-        self.CuentaAhorros.saldo=nuevoSaldo 
-        return "su saldo se ha duplicado a"+ nuevoSaldo
-        # retorno self.CuentaAhorro.ConsultarSaldo() *=2
+        return self.ahorros.ConsultarSaldo()*2
+        # forma 2
+        #self.ahorros.ConsignarCuentaAhorros(self.ahorros.ConsultarSaldo())
     
     def RetirarAhorro(self, retiro):
         #aqui va el codigo
-        return self.CuentaCorriente.RetirarValor(retiro)
+        return self.corriente.RetirarValor(retiro)
     
     def ConsultarSaldoCorriente(self):
         # aqui va el codigo
-        return "su saldo en la cuenta corriente es"+ self.CuentaCorriente.ConsultarSaldo()
+        return "su saldo en la cuenta corriente es"+ self.corriente.ConsultarSaldo()
     
-    def RetirarTodo(self,):
+    def RetirarTodo(self):
         # aqui va el codigo
-        saldoAhorros= self.CuentaAhorros.ConsultarSaldo()
-        saldoCorriente= self.CuentaCorriente.ConsultarSaldo()
+        saldoAhorros= self.ahorros.ConsultarSaldo()
+        saldoCorriente= self.corriente.ConsultarSaldo()
         retiro=saldoAhorros+saldoCorriente
-        self.CuentaAhorros.RetirarValor(saldoAhorros)
-        self.CuentaCorriente.RetirarValor(saldoCorriente)
-        return "usted ha retirado un total de"+retiro
+        self.ahorros.RetirarValor(saldoAhorros)
+        self.corriente.RetirarValor(saldoCorriente)
+        return retiro
