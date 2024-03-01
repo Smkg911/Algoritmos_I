@@ -12,6 +12,12 @@ class CDT:
     # Metodos 
     ------------------------------'''
 
+    #constructor
+    def __init__(self, valorInvertido, interesMensual, mesApertura):
+        self.valorInvertido=valorInvertido
+        self.interesMensual=interesMensual
+        self.mesApertura=mesApertura
+
     def ValorInvertido(self):
         #aqui va el codigo
         return "su Valor Invertido actual es"+ self.valorInvertido
