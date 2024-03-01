@@ -22,12 +22,17 @@ class SimuladorBancario:
     '''----------------------------------------------------
     # metodos 
     --------------------------------------------------------'''
+    #constructor
+
+    def __init__(self, cedula, nombre, mesActual):
+        self.cedula=cedula
+        self.nombre=nombre
+        self.mesActual=mesActual
 
     def ConsultarSaldoTotal (self):
         #aqui va el codigo
         return "su saldo total es"+ self.ahorros.ConsultarSaldo()+ self.corriente.ConsultarSaldo()
         
-    
     def ConsignarCuentaCorriente(self, deposito):
         #aqui va el codigo 
         return self.corriente.DepositarValor(deposito)
