@@ -4,7 +4,7 @@ class CuentaCorriente:
     '''--------------------------
     #Atributos 
     -----------------------------'''
-    saldo1=0
+    saldo=0
 
     '''---------------------------
     # Metodos 
@@ -16,18 +16,8 @@ class CuentaCorriente:
     
     def DepositarValor(self, deposito):
         #aqui va el codigo
-        deposito = 0
-        nSaldo = self.saldo+deposito
-        self.saldo = nSaldo 
-        return "Usted ha depositado"+deposito
+        self.saldo += deposito 
     
     def RetirarValor(self, retiro):
         #aqui va el codigo
-        retiro = 0
-        nSaldo = self.saldo-retiro 
-        self.saldo = nSaldo 
-        if retiro <= self.saldo:
-            self.saldo < retiro
-            return "usted ha retirado"+ retiro
-        else:
-            return "fondos insuficientes"
+        self.saldo -= retiro
