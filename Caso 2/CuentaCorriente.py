@@ -9,6 +9,9 @@ class CuentaCorriente:
     '''---------------------------
     # Metodos 
     ------------------------------'''
+    #constructor
+    def __init__(self, saldo):
+        self.saldo=saldo
 
     def ConsultarSaldo(self):
         #aqui va el codigo
