@@ -13,6 +13,7 @@ class Empleados:
     ------------------------------------'''
     sexo=0
     salario=0
+    hijos=0
 
     '''-----------------------------------------
     # Asociaciones
@@ -27,11 +28,12 @@ class Empleados:
 
     # constructor
 
-    def __init__(self, nombres, apellidos, salario, sexo):
+    def __init__(self, nombres, apellidos, salario, sexo, hijos):
         self.nombres=nombres
         self.apellidos=apellidos
         self.salario=salario
         self.sexo=sexo
+        self.hijos=hijos
 
     def CambiarSalario(self, nSalario):
         #aqui va el codigo
@@ -72,3 +74,21 @@ class Empleados:
         return self.SalarioAnual()*0.195
         # #forma 2
         # return self.SalarioAnual()*0.195
+    
+    def CantidasHijos(self):
+        # aqui va el codigo 
+        return self.hijos
+    
+    def AuxilioEducativo(self):
+        salarioAuxilio= self.salario*0.05
+        auxilioEducativo= salarioAuxilio*self.hijos 
+        return auxilioEducativo
+    
+    def AuxilioEducativo2(self, porcentaje):
+        salarioAuxilio2= self.salario*porcentaje
+        auxilioEducativo2= salarioAuxilio2*self.hijos 
+        return auxilioEducativo2
+    
+    def DiferenciaSalarios(self, empleado2):
+        diferencia= self.salario-empleado2
+        return diferencia
