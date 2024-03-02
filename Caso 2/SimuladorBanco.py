@@ -5,29 +5,36 @@ from CDT import CDT
 class SimuladorBancario:
     #aqui va el codigo
 
-    '''-----------------------------------
+    '''-------------------------------------------------------------------
     # Atributos
-    -------------------------------------'''
+    ----------------------------------------------------------------------'''
     cedula=0
     nombre=''
     mesActual=0
-    '''-----------------------------------------
+    '''-----------------------------------------------------------------------
+    # 1 = Vip y 2 = Platino y 3 = Normal 
+    -------------------------------------------------------------------------'''
+    cliente=0
+
+
+    '''------------------------------------------------------------------------
     # Asociaciones
-    --------------------------------------------'''
+    ---------------------------------------------------------------------------'''
 
     ahorros= CuentaAhorros()
     corriente= CuentaCorriente() 
     cdt = CDT()
 
-    '''----------------------------------------------------
+    '''-----------------------------------------------------------------------------------
     # metodos 
-    --------------------------------------------------------'''
+    ------------------------------------------------------------------------------------'''
     #constructor
 
-    def __init__(self, cedula, nombre, mesActual):
+    def __init__(self, cedula, nombre, mesActual, cliente):
         self.cedula=cedula
         self.nombre=nombre
         self.mesActual=mesActual
+        self.cliente=cliente
 
     def ConsultarSaldoTotal (self):
         #aqui va el codigo
@@ -72,3 +79,6 @@ class SimuladorBancario:
         self.ahorros.RetirarValor(saldoAhorros)
         self.corriente.RetirarValor(saldoCorriente)
         return retiro
+    
+    def cambiarTipoCliente(self, nuevoTipoCliente):
+        self.cliente=nuevoTipoCliente
