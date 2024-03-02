@@ -23,4 +23,8 @@ class CuentaCorriente:
     
     def RetirarValor(self, retiro):
         #aqui va el codigo
-        self.saldo -= retiro
+        valorRetirado=retiro*0.01
+        nsaldo=self.saldo-(valorRetirado+retiro)
+        self.saldo=nsaldo
+        return "usted ha retirado "+retiro
+        
