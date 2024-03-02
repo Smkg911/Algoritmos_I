@@ -49,19 +49,20 @@ class SimuladorBancario:
         return self.ahorros.DepositarValor(deposito)
     def CuentaAhorrosCorriente(self):
         #aqui va el codigo
-        saldoAhorros= self.ahorros.ConsultarSaldo()
-        self.ahorros.RetirarValor(saldoAhorros)
-        self.corriente.DepositarValor(saldoAhorros)
-        return saldoAhorros
+        self.ConsignarCuentaCorriente(self.ahorros.ConsultarSaldo())
+        self.ahorros.RetirarValor(self.ahorros.ConsultarSaldo())
+
         # forma 2
-        #self.ConsignarCuentaCorriente(self.ahorros.ConsultarSaldo())
-        #self.ahorros.RetirarValor(self.ahorros.ConsultarSaldo())
+        # saldoAhorros= self.ahorros.ConsultarSaldo()
+        # self.ahorros.RetirarValor(saldoAhorros)
+        # self.corriente.DepositarValor(saldoAhorros)
+        # return saldoAhorros
     
     def DuplicarSaldoAhorros(self):
         # aqui va el codigo
-        return self.ahorros.ConsultarSaldo()*2
+        self.ahorros.ConsignarCuentaAhorros(self.ahorros.ConsultarSaldo())
         # forma 2
-        #self.ahorros.ConsignarCuentaAhorros(self.ahorros.ConsultarSaldo())
+        # return self.ahorros.ConsultarSaldo()*2
     
     def RetirarAhorro(self, retiro):
         #aqui va el codigo
@@ -70,15 +71,21 @@ class SimuladorBancario:
     def ConsultarSaldoCorriente(self):
         # aqui va el codigo
         return "su saldo en la cuenta corriente es"+ self.corriente.ConsultarSaldo()
-    
+
     def RetirarTodo(self):
         # aqui va el codigo
-        saldoAhorros= self.ahorros.ConsultarSaldo()
-        saldoCorriente= self.corriente.ConsultarSaldo()
-        retiro=saldoAhorros+saldoCorriente
-        self.ahorros.RetirarValor(saldoAhorros)
-        self.corriente.RetirarValor(saldoCorriente)
-        return retiro
+        total = self.CalcularSaldoToTal()
+        self.TransferirAhorrosACorriente()
+        self.RetirarCuentaCorriente(total)
+        return total 
+        # forma 2
+        # saldoAhorros= self.ahorros.ConsultarSaldo()
+        # saldoCorriente= self.corriente.ConsultarSaldo()
+        # retiro=saldoAhorros+saldoCorriente
+        # self.ahorros.RetirarValor(saldoAhorros)
+        # self.corriente.RetirarValor(saldoCorriente)
+        # return retiro
+
     
     def cambiarTipoCliente(self, nuevoTipoCliente):
         self.cliente=nuevoTipoCliente
